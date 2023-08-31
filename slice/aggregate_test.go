@@ -7,29 +7,29 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-type Integer int
+type integer int
 
 func TestMax(t *testing.T) {
 	testCase := []struct {
 		name    string
-		src     []Integer
-		wantVal Integer
+		src     []integer
+		wantVal integer
 	}{
 		{
 			name:    "value",
-			src:     []Integer{1},
+			src:     []integer{1},
 			wantVal: 1,
 		},
 		{
 			name:    "values",
-			src:     []Integer{1, 2, 3, 4},
+			src:     []integer{1, 2, 3, 4},
 			wantVal: 4,
 		},
 	}
 
 	for _, tc := range testCase {
 		t.Run(tc.name, func(t *testing.T) {
-			res := Max[Integer](tc.src)
+			res := Max[integer](tc.src)
 			assert.Equal(t, res, tc.wantVal)
 		})
 	}
@@ -58,24 +58,24 @@ func TestMax(t *testing.T) {
 func TestMin(t *testing.T) {
 	testCase := []struct {
 		name    string
-		src     []Integer
-		wantVal Integer
+		src     []integer
+		wantVal integer
 	}{
 		{
 			name:    "value",
-			src:     []Integer{1},
+			src:     []integer{1},
 			wantVal: 1,
 		},
 		{
 			name:    "values",
-			src:     []Integer{1, 2, 3, 4},
+			src:     []integer{1, 2, 3, 4},
 			wantVal: 1,
 		},
 	}
 
 	for _, tc := range testCase {
 		t.Run(tc.name, func(t *testing.T) {
-			res := Min[Integer](tc.src)
+			res := Min[integer](tc.src)
 			assert.Equal(t, res, tc.wantVal)
 		})
 	}
@@ -104,32 +104,32 @@ func TestMin(t *testing.T) {
 func TestSum(t *testing.T) {
 	testCase := []struct {
 		name    string
-		src     []Integer
-		wantVal Integer
+		src     []integer
+		wantVal integer
 	}{
 		{
 			name: "nil",
 		},
 		{
 			name:    "empty",
-			src:     []Integer{},
+			src:     []integer{},
 			wantVal: 0,
 		},
 		{
 			name:    "value",
-			src:     []Integer{1},
+			src:     []integer{1},
 			wantVal: 1,
 		},
 		{
 			name:    "values",
-			src:     []Integer{1, 2, 3, 4},
+			src:     []integer{1, 2, 3, 4},
 			wantVal: 10,
 		},
 	}
 
 	for _, tc := range testCase {
 		t.Run(tc.name, func(t *testing.T) {
-			res := Sum[Integer](tc.src)
+			res := Sum[integer](tc.src)
 			assert.Equal(t, res, tc.wantVal)
 		})
 	}

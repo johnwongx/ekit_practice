@@ -3,7 +3,7 @@ package slice
 import (
 	"testing"
 
-	"github.com/magiconair/properties/assert"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestDiff(t *testing.T) {
@@ -66,7 +66,7 @@ func TestDiff(t *testing.T) {
 	for _, tc := range testCase {
 		t.Run(tc.name, func(t *testing.T) {
 			res := DiffSet[int](tc.inputSrc, tc.inputDst)
-			assert.Equal(t, res, tc.wantSlic)
+			assert.ElementsMatch(t, res, tc.wantSlic)
 		})
 	}
 }
@@ -133,7 +133,7 @@ func TestDiffFunc(t *testing.T) {
 			res := DiffSetFunc[int](tc.inputSrc, tc.inputDst, func(src, dst int) bool {
 				return src == dst
 			})
-			assert.Equal(t, res, tc.wantSlic)
+			assert.ElementsMatch(t, res, tc.wantSlic)
 		})
 	}
 }
